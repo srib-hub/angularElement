@@ -3,14 +3,15 @@ import { ApplicationRef, Injector, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SocialButtonComponent } from './social-button/social-button.component';
 import { environment } from 'src/environments/environment';
 import { createCustomElement } from '@angular/elements';
+import { MonpetitponeyComponent } from './monpetitponey/monpetitponey.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SocialButtonComponent
+    MonpetitponeyComponent,
+    MonpetitponeyComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +20,7 @@ import { createCustomElement } from '@angular/elements';
   providers: [],
   entryComponents: [
     AppComponent,
-    SocialButtonComponent
+    MonpetitponeyComponent
   ]
 })
 export class AppModule {
@@ -27,8 +28,8 @@ export class AppModule {
 
   ngDoBootstrap(app: ApplicationRef) {
     if(environment.production) {
-      const socialButtonElement = createCustomElement(SocialButtonComponent, {injector: this.injector});
-      customElements.define('social-button', socialButtonElement);
+      const monpetitponeyElement = createCustomElement(MonpetitponeyComponent, {injector: this.injector});
+      customElements.define('mon-petit-poney', monpetitponeyElement);
     }
     else {
       app.bootstrap(AppComponent);
